@@ -7,7 +7,7 @@ import Link from "next/link";
 
 export default function Navigation() {
   return (
-    <nav className="flex items-center gap-x-10">
+    <nav className="hidden lg:flex items-center gap-x-10">
         <Menubar>
             <MenubarMenu>
                 <MenubarTrigger>Ligas nacionais</MenubarTrigger>
