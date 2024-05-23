@@ -1,11 +1,13 @@
 import Header from "@/components/header";
 
 
-export default function layout({children}) {
+export default function IndexLayout({children}) {
   return (
     <>
       <Header />
+      <main>
         {children}
+      </main>
     </>
   )
 }
