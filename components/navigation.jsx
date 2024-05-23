@@ -15,7 +15,6 @@ export default function Navigation() {
                     <MenubarItem>
                         <Link href={"/brasil"}>
                             Brasileirão
-                        
                         </Link>
                     </MenubarItem>
                     <MenubarItem>
