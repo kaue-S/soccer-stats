@@ -14,8 +14,10 @@ import {
 export default function NavButton() {
 
   return (
+    <nav className='lg:hidden ml-4 flex'>
+
       <Sheet>
-        <SheetTrigger><Menu size={20}/></SheetTrigger>
+        <SheetTrigger><Menu size={35} className='rounded-md p-1 bg-white px-2'/></SheetTrigger>
         <SheetContent  side="left">
           <SheetHeader>
             <SheetTitle>Are you absolutely sure?</SheetTitle>
@@ -26,5 +28,6 @@ export default function NavButton() {
           </SheetHeader>
         </SheetContent>
       </Sheet>
+    </nav>
   )
 }
