@@ -6,7 +6,6 @@ import { useState } from "react";
 import { Button } from "./ui/button";
 
 
-
 export default function Navigation() {
      
   return (
@@ -19,9 +18,10 @@ export default function Navigation() {
                         <Link href={"/brasileirao"}>
                             Brasileirão
                         </Link>
+                        
                     </MenubarItem>
                     <MenubarItem>
-                        champions
+                        <Link href={"/premierLeague"}>premier</Link>
                     </MenubarItem>
                     <MenubarItem>
                         libertadores

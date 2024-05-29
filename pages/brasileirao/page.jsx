@@ -1,3 +1,4 @@
+
 import React from 'react'
 
 export default function Brasileirao() {
@@ -6,4 +7,10 @@ export default function Brasileirao() {
       <h1>breasileirao</h1>
     </>
   )
+}
+
+
+ export function getStaticProps(){
+
+
 }
