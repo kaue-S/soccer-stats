@@ -16,7 +16,7 @@ export default function Navigation() {
                 <MenubarTrigger className="cursor-pointer">Ligas nacionais</MenubarTrigger>
                 <MenubarContent>
                     <MenubarItem>
-                        <Link href={"/brasil"}>
+                        <Link href={"/brasileirao"}>
                             Brasileirão
                         </Link>
                     </MenubarItem>
