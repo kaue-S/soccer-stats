@@ -2,7 +2,7 @@
 import React from 'react'
 import HeaderLogo from '@/components/headerLogo'
 import Navigation from '@/components/Navigation'
-import NavButton from './navButton'
+import NavButton from './NavButton'
 
 
 
