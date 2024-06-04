@@ -7,7 +7,7 @@ export default async function Brasileirao() {
 
   // const apiKey = process.env.NEXT_PUBLIC_API_KEY;
 
-   const resposta = await fetch('https://apiv3.apifootball.com/?action=get_leagues&country_id=27&APIkey=8fb6c79632ee46c334a924cd01221430ce944e9b920eaea51bbbfe887b55bc85')
+   const resposta = await fetch('https://apiv3.apifootball.com/?action=get_standings&league_id=99&APIkey=8fb6c79632ee46c334a924cd01221430ce944e9b920eaea51bbbfe887b55bc85')
    const dados = await resposta.json();
    console.log(dados);
 
