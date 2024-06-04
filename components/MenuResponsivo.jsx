@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/sheet"
 
 
-export default function NavButton() {
+export default function MenuResponsivo() {
 
   return (
     <nav className='lg:hidden ml-4 flex'>

@@ -2,6 +2,9 @@ import React from 'react'
 
 export default function Brasileirao() {
   return (
-    <div> Brasileirao</div>
+    <main>
+      <h1>brasileirao</h1>
+    </main>
   )
 }
+

@@ -28,7 +28,9 @@ export default function Navigation() {
                     </MenubarItem>
                 </MenubarContent>
             </MenubarMenu>
+
             <MenubarSeparator />
+
             <MenubarMenu>
                 <MenubarTrigger className="cursor-pointer">Ligas Continentais</MenubarTrigger>
                 <MenubarContent>
@@ -43,7 +45,9 @@ export default function Navigation() {
                     </MenubarItem>
                 </MenubarContent>
             </MenubarMenu>
+            
             <MenubarSeparator />
+
             <MenubarMenu>
                 <MenubarTrigger className="cursor-pointer">Clubes</MenubarTrigger>
                 <MenubarContent>
@@ -58,7 +62,9 @@ export default function Navigation() {
                     </MenubarItem>
                 </MenubarContent>
             </MenubarMenu>
+
             <MenubarSeparator />
+            
             <MenubarMenu>
                 <MenubarTrigger className="cursor-pointer">Seleções</MenubarTrigger>
                 <MenubarContent>

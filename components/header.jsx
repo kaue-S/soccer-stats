@@ -2,7 +2,7 @@
 import React from 'react'
 import HeaderLogo from '@/components/headerLogo'
 import Navigation from '@/components/Navigation'
-import NavButton from './NavButton'
+import MenuResponsivo from './MenuResponsivo'
 
 
 
@@ -15,7 +15,7 @@ export default function Header() {
               <HeaderLogo />
               <Navigation />
         </div>
-              <NavButton />
+              <MenuResponsivo  />
     </header>
   )
 }
