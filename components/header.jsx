@@ -1,6 +1,6 @@
 
 import React from 'react'
-import HeaderLogo from '@/components/headerLogo'
+import HeaderLogo from '@/components/HeaderLogo'
 import Navigation from '@/components/Navigation'
 import MenuResponsivo from './MenuResponsivo'
 
