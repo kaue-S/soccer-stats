@@ -13,6 +13,6 @@ export default async function Brasileirao() {
   //  console.log(dados);
 
 return (
-    <LeaguePage leagueId={99} title={"bla"}/>
+    <LeaguePage leagueId={99} title={"Brasileirão"}/>
   )
 }
