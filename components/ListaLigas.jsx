@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function ListaLigas() {
+export default function ListaLigas({ligas}) {
   return (
     <main>
         <table className="border">
