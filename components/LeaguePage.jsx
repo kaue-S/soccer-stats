@@ -15,6 +15,21 @@ export default async function LeaguePage({leagueId, title}) {
 
     }
 
+    //função para colorir posições classificatórias para outros campeonatos
+    function corPorPosicao(posicao){
+        if(posicao <= 4 ){ 
+           return "bg-green-500 px-3";
+        } else if(posicao > 4 && posicao <=6 ) {
+            return "bg-blue-400 px-3";
+        } else if(posicao > 6 && posicao <= 12) {
+            return "bg-blue-300 px-3";
+        } else if(posicao > 12 && posicao < 17) {
+            return "bg-gray-300 px-3";
+        } else if(posicao > 16) {
+            return "bg-red-400 px-3";
+        }
+    }
+
   return (
     <main>
         <h1 className='text-center text-5xl'>{title}</h1>
@@ -22,23 +37,25 @@ export default async function LeaguePage({leagueId, title}) {
             <table className="border">
                 <thead className="bg-gray-400 px-3">
                     <tr>
-                        <th colSpan={2} className="pl-3 lg:pr-24 lg:text-xl border">Classificação</th>
-                        <th>P</th>
-                        <th>J</th>
-                        <th>V</th>
-                        <th>E</th>
-                        <th>D</th>
-                        <th>GP</th>
-                        <th>GC</th>
-                        <th>SG</th>
-                        <th>%</th>
+                        <th colSpan={2} className="pl-3 lg:pr-24 lg:text-xl ">Classificação</th>
+                        <th className="px-5" title="Pontos conquistados">P</th>
+                        <th className="px-5" title="Partidas jogadas">J</th>
+                        <th className="px-5" title="Vitórias">V</th>
+                        <th className="px-5" title="Empates">E</th>
+                        <th className="px-5" title="Derrotas">D</th>
+                        <th className="px-4" title="Gols marcados">GP</th>
+                        <th className="px-4" title="Gols sofridos">GC</th>
+                        <th className="px-4" title="Saldo de gols">SG</th>
+                        <th className="px-5" title="Aproveitamento">%</th>
                     </tr>
                 </thead>
-                <tbody >
+                <tbody className=" text-center"  >
                     {leagueData.map((item) =>(
-                        <tr className='border text-center' key={item.team_id}>
-                            <td className='pl-2'>{item.overall_league_position}</td>
-                            <td className="  py-1  flex gap-3">
+                        <tr key={item.team_id} className='border'>
+                            
+                            <td className={corPorPosicao(item.overall_league_position)} >{item.overall_league_position}</td>
+
+                            <td className="p-3 flex gap-3">
                                 <Image
                                     src={item.team_badge}
                                     alt={`Escudo do ${item.team_name}`}
@@ -47,7 +64,8 @@ export default async function LeaguePage({leagueId, title}) {
                                 />
                                 {item.team_name}
                             </td>
-                            <td className="border px-3 bg-gray-200">{item.overall_league_PTS}</td>
+
+                            <td className="border px-3 bg-gray-200 font-bold">{item.overall_league_PTS}</td>
                             <td className="border px-3">{item.overall_league_payed}</td>
                             <td className="border px-3 bg-gray-200">{item.overall_league_W}</td>
                             <td className="border px-3">{item.overall_league_D}</td>
