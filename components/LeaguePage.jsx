@@ -31,9 +31,9 @@ export default async function LeaguePage({leagueId, title}) {
     }
 
   return (
-    <main>
+    <main className='px-3'>
         <h1 className='text-center text-5xl'>{title}</h1>
-        <div className='flex justify-center'>
+        <div className='flex lg:justify-center justify-start overflow-x-auto'>
             <table className="border">
                 <thead className="bg-gray-400 px-3">
                     <tr>
@@ -55,7 +55,7 @@ export default async function LeaguePage({leagueId, title}) {
                             
                             <td className={corPorPosicao(item.overall_league_position)} >{item.overall_league_position}</td>
 
-                            <td className="p-3 flex gap-3">
+                            <td className="p-3 flex gap-3 whitespace-nowrap">
                                 <Image
                                     src={item.team_badge}
                                     alt={`Escudo do ${item.team_name}`}
