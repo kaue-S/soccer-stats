@@ -21,7 +21,7 @@ export default function Navigation() {
                         </Link>
                     </MenubarItem>
                     <MenubarItem>
-                        champions
+                       
                     </MenubarItem>
                     <MenubarItem>
                         libertadores
