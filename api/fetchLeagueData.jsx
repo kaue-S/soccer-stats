@@ -4,7 +4,12 @@ export async function fetchLeagueData(leagueId) {
   const apiKey = process.env.NEXT_PUBLIC_API_KEY;
 
   try {
-    const response = await fetch(`https://apiv3.apifootball.com/?action=get_standings&league_id=${leagueId}&APIkey=${apiKey}`)
+    const response = await fetch(`https://apiv3.apifootball.com/?action=get_standings&league_id=${leagueId}&APIkey=${apiKey}` , {
+      headers: {
+        'Cache-Control': 'no-cache, no-store', // Desativa cache do navegador e da API
+        'Pragma': 'no-cache' // Desativa cache do proxy
+      }
+  })
     if(!response.ok){
       throw new Error("erro ao buscar dados")
     }
@@ -15,3 +20,4 @@ export async function fetchLeagueData(leagueId) {
       return [];
   }
 }
+
