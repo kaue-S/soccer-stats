@@ -21,10 +21,24 @@ export default function Navigation() {
                         </Link>
                     </MenubarItem>
                     <MenubarItem>
-                       
+                        <Link href={"/premierLeague"}>
+                            Premier League
+                        </Link>
                     </MenubarItem>
                     <MenubarItem>
-                        libertadores
+                        <Link href={"/ligue1"}>
+                            League 1
+                        </Link>
+                    </MenubarItem>
+                    <MenubarItem>
+                        <Link href={"/serieA"}>
+                            Série A
+                        </Link>
+                    </MenubarItem>
+                    <MenubarItem>
+                        <Link href={"/bundesliga"}>
+                            Bundesliga
+                        </Link>
                     </MenubarItem>
                 </MenubarContent>
             </MenubarMenu>
