@@ -80,6 +80,10 @@ export default async function LeaguePage({leagueId, title}) {
             </table>
 
         </div>
+
+        <div>
+            
+        </div>
     </main>
   )
 }
