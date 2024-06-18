@@ -1,11 +1,18 @@
 import React from 'react'
 import Image from 'next/image';
 import { fetchLeagueData } from '@/api/fetchLeagueData'
+import fechMatches from '@/api/fechMatches';
+import { ajustarData, ajustarHorario } from '@/lib/utils';
 
 
 export default async function LeaguePage({leagueId, title}) {
+
+    //fetch das classificações das ligas
     const leagueData = await fetchLeagueData(leagueId)
     console.log(leagueData);
+
+    const matchesData = await fechMatches(leagueId)
+    console.log(matchesData);
 
     //função para calcular o aproveitamento de cada clube
     function aproveitamento(pontosConquistados, totalJogos){
@@ -81,8 +88,24 @@ export default async function LeaguePage({leagueId, title}) {
 
         </div>
 
-        <div>
-            
+        <div className=" ">
+            {matchesData.map((item) => (
+                <div className="border flex justify-around p-5" key={item.match_id}>
+                    <div>
+                        <h3> {ajustarData(item.match_date)}</h3>
+                        <h4>{ajustarHorario(item.match_time)}</h4>
+
+                    </div>
+                    <div >
+                        <Image src={item.team_home_badge} width={25} height={25} alt={`logotipo do clube ${item.team_name}`} className="m-auto"/>
+                        <p>{item.match_hometeam_name}</p> 
+                    </div>
+                    <div >
+                        <Image src={item.team_away_badge} width={25} height={25} alt={`logotipo do clube ${item.team_name}`} className="m-auto"/>
+                        <p>{item.match_awayteam_name}</p> 
+                    </div>
+                </div>
+            ))}
         </div>
     </main>
   )
