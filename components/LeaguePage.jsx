@@ -36,7 +36,6 @@ export default async function LeaguePage({leagueId, title}) {
         }
     }
 
-
   return (
     <main className='px-3'>
         <h1 className='text-center text-5xl'>{title}</h1>
