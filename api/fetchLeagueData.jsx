@@ -5,10 +5,10 @@ export async function fetchLeagueData(leagueId) {
 
   try {
     const response = await fetch(`https://apiv3.apifootball.com/?action=get_standings&league_id=${leagueId}&APIkey=${apiKey}` , {
-      // headers: {
-      //   'Cache-Control': 'no-cache, no-store', // Desativa cache do navegador e da API
-      //   'Pragma': 'no-cache' // Desativa cache do proxy
-      // }
+      headers: {
+        'Cache-Control': 'no-cache, no-store', // Desativa cache do navegador e da API
+        'Pragma': 'no-cache' // Desativa cache do proxy
+      }
   })
     if(!response.ok){
       throw new Error("erro ao buscar dados")
