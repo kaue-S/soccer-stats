@@ -11,7 +11,7 @@ export default async function LeaguePage({leagueId, title}) {
     console.log(leagueData);
 
     const matchesData = await fechMatches(leagueId)
-    // console.log(matchesData);
+    console.log(matchesData);
 
     //função para calcular o aproveitamento de cada clube
     function aproveitamento(pontosConquistados, totalJogos){
@@ -86,7 +86,6 @@ export default async function LeaguePage({leagueId, title}) {
                             ))}
                     </tbody>
                 </table>
-
             </div>
 
         <div className="">
@@ -122,6 +121,7 @@ export default async function LeaguePage({leagueId, title}) {
 
             ))}
         </div>
+
 
         </section>
     </main>
