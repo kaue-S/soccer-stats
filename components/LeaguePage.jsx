@@ -11,7 +11,7 @@ export default async function LeaguePage({leagueId, title}) {
     console.log(leagueData);
 
     const matchesData = await fechMatches(leagueId)
-    console.log(matchesData);
+    // console.log(matchesData);
 
     //função para calcular o aproveitamento de cada clube
     function aproveitamento(pontosConquistados, totalJogos){
@@ -37,9 +37,11 @@ export default async function LeaguePage({leagueId, title}) {
     }
 
   return (
-    <main className='px-3'>
-        <h1 className='text-center text-5xl'>{title}</h1>
-            <div className='flex lg:justify-center justify-start overflow-x-auto'>
+    <main className='px-2'>
+        <h1 className='text-center text-5xl lg:text-7xl'>{title}</h1>
+        <section className="lg:flex justify-around">
+            <div className='overflow-x-auto'>
+                <h2 className="lg:text-4xl text-center">Tabela de Classificação</h2><br />
                 <table className="border">
                     <thead className="bg-gray-400 px-3">
                         <tr>
@@ -61,7 +63,7 @@ export default async function LeaguePage({leagueId, title}) {
                                 
                                 <td className={corPorPosicao(item.overall_league_position)} >{item.overall_league_position}</td>
 
-                                <td className="p-3 flex gap-3 whitespace-nowrap">
+                                <td className="p-2 pr-7 lg:p-2 flex gap-1 whitespace-nowrap">
                                     <Image
                                         src={item.team_badge}
                                         alt={`Escudo do ${item.team_name}`}
@@ -87,26 +89,41 @@ export default async function LeaguePage({leagueId, title}) {
 
             </div>
 
-        <div className=" ">
+        <div className="">
+            <h2 className="lg:text-4xl text-center">Partidas</h2><br />
             {matchesData.map((item) => (
-                <div className="border flex justify-around p-5" key={item.match_id}>
-                    <div>
+                
+                <div className="border flex flex-col items-center justify-around p-5" key={item.match_id}>
+
+                    <div className="text-center">
                         <h3> {ajustarData(item.match_date)}</h3>
                         <h4>{ajustarHorario(item.match_time)}</h4>
                     </div>
-                    <div >
-                        <Image src={item.team_home_badge} width={25} height={25} alt={`logotipo do clube ${item.team_name}`} className="m-auto"/>
+
+                    <div className='flex'>
+
+                    <div className='flex flex-row items-center '>
                         <p>{item.match_hometeam_name}</p> 
-                        <p className="text-center">{item.match_hometeam_score}</p>
+                        <Image src={item.team_home_badge} width={25} height={25} alt={`logotipo do clube ${item.team_name}`} className="m-auto"/>
+                        <p className="text-center font-bold text-2xl pl-3">{item.match_hometeam_score}</p>
                     </div>
-                    <div >
+
+                    <div className='px-2'>
+                        <p>x</p>
+                    </div>
+
+                    <div className='flex items-center '>
+                        <p className="text-center font-bold text-2xl pr-3">{item.match_awayteam_score}</p>
                         <Image src={item.team_away_badge} width={25} height={25} alt={`logotipo do clube ${item.team_name}`} className="m-auto"/>
                         <p>{item.match_awayteam_name}</p> 
-                        <p className="text-center">{item.match_awayteam_score}</p>
+                    </div>
                     </div>
                 </div>
+
             ))}
         </div>
+
+        </section>
     </main>
   )
 }
