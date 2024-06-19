@@ -36,6 +36,14 @@ export default async function LeaguePage({leagueId, title}) {
         }
     }
 
+    // Agrupar partidas por rodada usando reduce
+  const matchesByRound = matchesData.reduce((acc, match) => {
+    const round = match.match_round; // Assumindo que 'match_round' é a propriedade para o número da rodada
+    acc[round] = acc[round] || []; // Cria um array para a rodada se ela não existir
+    acc[round].push(match);
+    return acc;
+  }, {});
+
   return (
     <main className='px-2'>
         <h1 className='text-center text-5xl lg:text-7xl'>{title}</h1>
@@ -88,39 +96,60 @@ export default async function LeaguePage({leagueId, title}) {
                 </table>
             </div>
 
-        <div className="">
-            <h2 className="lg:text-4xl text-center">Partidas</h2><br />
-            {matchesData.map((item) => (
-                
-                <div className="border flex flex-col items-center justify-around p-5" key={item.match_id}>
+            <div className="">
+      <h2 className="lg:text-4xl text-center">Partidas</h2>
+      <br />
+      {Object.entries(matchesByRound).map(([roundNumber, roundMatches]) => (
+        <div key={roundNumber} className="mb-8">
+          <h3 className="text-center font-bold">Rodada {roundNumber}</h3>
+          {roundMatches.map((item) => (
+            <div
+              className="border flex flex-col items-center justify-around p-5"
+              key={item.match_id}
+            >
+              <div className="text-center">
+                <h3>{ajustarData(item.match_date)}</h3>
+                <h4>{ajustarHorario(item.match_time)}</h4>
+              </div>
 
-                    <div className="text-center">
-                        <h3> {ajustarData(item.match_date)}</h3>
-                        <h4>{ajustarHorario(item.match_time)}</h4>
-                    </div>
-
-                    <div className='flex'>
-
-                    <div className='flex flex-row items-center '>
-                        <p>{item.match_hometeam_name}</p> 
-                        <Image src={item.team_home_badge} width={25} height={25} alt={`logotipo do clube ${item.team_name}`} className="m-auto"/>
-                        <p className="text-center font-bold text-2xl pl-3">{item.match_hometeam_score}</p>
-                    </div>
-
-                    <div className='px-2'>
-                        <p>x</p>
-                    </div>
-
-                    <div className='flex items-center '>
-                        <p className="text-center font-bold text-2xl pr-3">{item.match_awayteam_score}</p>
-                        <Image src={item.team_away_badge} width={25} height={25} alt={`logotipo do clube ${item.team_name}`} className="m-auto"/>
-                        <p>{item.match_awayteam_name}</p> 
-                    </div>
-                    </div>
+              <div className="flex">
+                <div className="flex flex-row items-center">
+                  <p>{item.match_hometeam_name}</p>
+                  <Image
+                    src={item.team_home_badge}
+                    width={25}
+                    height={25}
+                    alt={`Logotipo do clube ${item.team_name}`}
+                    className="m-auto"
+                  />
+                  <p className="text-center font-bold text-2xl pl-3">
+                    {item.match_hometeam_score}
+                  </p>
                 </div>
 
-            ))}
+                <div className="px-2">
+                  <p>x</p>
+                </div>
+
+                <div className="flex items-center">
+                  <p className="text-center font-bold text-2xl pr-3">
+                    {item.match_awayteam_score}
+                  </p>
+                  <Image
+                    src={item.team_away_badge}
+                    width={25}
+                    height={25}
+                    alt={`Logotipo do clube ${item.team_name}`}
+                    className="m-auto"
+                  />
+                  <p>{item.match_awayteam_name}</p>
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
+      ))}
+    </div>
 
 
         </section>
