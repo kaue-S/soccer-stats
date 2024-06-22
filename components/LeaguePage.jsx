@@ -3,6 +3,7 @@ import Image from "next/image";
 import { fetchLeagueData } from "@/api/fetchLeagueData";
 import fechMatches from "@/api/fechMatches";
 import { ajustarData, ajustarHorario } from "@/lib/utils";
+import Rodadas from "./Rodadas";
 
 export default async function LeaguePage({ leagueId, title }) {
   //fetch das classificações das ligas
@@ -149,6 +150,10 @@ export default async function LeaguePage({ leagueId, title }) {
             </tbody>
           </table>
         </div>
+
+            <div>
+              <Rodadas />
+            </div>
 
         <div>
           <div>
